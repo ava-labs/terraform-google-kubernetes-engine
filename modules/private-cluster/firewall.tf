@@ -26,14 +26,14 @@
  *****************************************/
 locals {
   rule_name_base = (
-    var.make_firewall_rule_names_unique ?
+    var.add_firewall_rule_name_unique_suffix ?
     "${substr(var.name, 0, min(31, length(var.name)))}-${random_string.google_compute_firewall_suffix[0].result}" :
     substr(var.name, 0, min(36, length(var.name)))
   )
 }
 
 resource "random_string" "google_compute_firewall_suffix" {
-  count   = var.make_firewall_rule_names_unique ? 1 : 0
+  count   = var.add_firewall_rule_name_unique_suffix ? 1 : 0
   upper   = false
   lower   = true
   special = false
