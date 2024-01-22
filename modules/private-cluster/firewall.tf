@@ -24,15 +24,16 @@
   Required for clusters when VPCs enforce
   a default-deny egress rule
  *****************************************/
- locals {
+locals {
   rule_name_base = (
     var.make_firewall_rule_names_unique ?
-    "${substr(var.name, 0, min(31, length(var.name)))}-${random_string.google_compute_firewall_suffix.result}" :
+    "${substr(var.name, 0, min(31, length(var.name)))}-${random_string.google_compute_firewall_suffix[0].result}" :
     substr(var.name, 0, min(36, length(var.name)))
   )
 }
 
 resource "random_string" "google_compute_firewall_suffix" {
+  count   = var.make_firewall_rule_names_unique ? 1 : 0
   upper   = false
   lower   = true
   special = false
