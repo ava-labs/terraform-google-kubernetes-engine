@@ -32,6 +32,13 @@
   )
 }
 
+resource "random_string" "google_compute_firewall_suffix" {
+  upper   = false
+  lower   = true
+  special = false
+  length  = 4
+}
+
 resource "google_compute_firewall" "intra_egress" {
   count       = var.add_cluster_firewall_rules ? 1 : 0
   name        = "gke-${local.rule_name_base}-intra-cluster-egress"
