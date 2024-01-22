@@ -473,6 +473,12 @@ variable "add_master_webhook_firewall_rules" {
   default     = false
 }
 
+variable "make_firewall_rule_names_unique" {
+  type        = bool
+  description = "Create additional firewall rule unique suffix"
+  default     = false
+}
+
 variable "firewall_priority" {
   type        = number
   description = "Priority rule for firewall rules"
