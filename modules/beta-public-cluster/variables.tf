@@ -780,3 +780,9 @@ variable "enable_gcfs" {
   description = "Enable image streaming on cluster level."
   default     = false
 }
+
+variable "add_firewall_rule_name_unique_suffix" {
+  type        = bool
+  description = "Create additional firewall rule unique suffix"
+  default     = false
+}
