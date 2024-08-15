@@ -887,3 +887,9 @@ variable "fleet_project_grant_service_agent" {
   type        = bool
   default     = false
 }
+
+variable "add_firewall_rule_name_unique_suffix" {
+  type        = bool
+  description = "Create additional firewall rule unique suffix"
+  default     = false
+}
