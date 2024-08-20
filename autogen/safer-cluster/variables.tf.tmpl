@@ -89,6 +89,12 @@ variable "master_authorized_networks" {
   default     = []
 }
 
+variable "gcp_public_cidrs_access_enabled" {
+  type        = bool
+  description = "Whether to allow access to the public IPs of the GCP services"
+  default     = false
+}
+
 variable "horizontal_pod_autoscaling" {
   type        = bool
   description = "Enable horizontal pod autoscaling addon"
